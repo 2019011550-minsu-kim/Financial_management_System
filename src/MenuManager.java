@@ -28,45 +28,39 @@ public class MenuManager {
 			System.out.println("6. Exit");
 			//println을 통해 Exit 출력 후 줄 바꿈.
 			
+			System.out.println("Select one number beetween 1~6 : ");
+			
 			num = input.nextInt();
 			
 			if (num == 1)
 			{
-				System.out.print(" Money input : ");
+				System.out.print(" Money Input : ");
 				int money = input.nextInt();
-				System.out.print(" Input day : ");
+				System.out.print(" Input Day : ");
 				String day = input.next(); //nextLine 사용시 오류 발생
-				System.out.println(" Money input");
-				System.out.println(" Money input");
-				System.out.println(" Money input");
+				
 			}
 			else if (num == 2)
 			{
-				System.out.print(" Money input : ");
+				System.out.print(" Using Money : ");
 				int money = input.nextInt();
-				System.out.print(" Input day : ");
+				System.out.print(" Left Money : ");
 				String day = input.next();
 			}
 			else if (num == 3)
 			{
-				System.out.print(" Money input : ");
+				System.out.print(" Money Input : ");
 				int money = input.nextInt();
-				System.out.print(" Input day : ");
-				String day = input.next();
 			}
 			else if (num == 4)
 			{
-				System.out.print(" Money input : ");
+				System.out.print(" Money Input : ");
 				int money = input.nextInt();
-				System.out.print(" Input day : ");
-				String day = input.next();
 			}
 			else {
 				continue;
+				//5번을 입력 시 메뉴를 다시 출력해줌
 			}
-			
-			
-			
 			
 			
 			
