@@ -21,11 +21,7 @@ public class MenuManager {
 			//각 메뉴에 대한 출력
 			if (num == 1)
 			{
-				System.out.print(" Money Input : ");
-				int money = input.nextInt();
-				System.out.print(" Input Day : ");
-				String day = input.next(); //nextLine 사용시 오류 발생
-
+				addMoney();
 			}
 			else if (num == 2)
 			{
@@ -43,14 +39,7 @@ public class MenuManager {
 				continue;
 				//5번을 입력 시 메뉴를 다시 출력해줌
 			}
-
-
-
-
-
 		} //while 문 종료 괄호
-
-
 	}
 	
 	//각 메뉴에 대한 메소드
