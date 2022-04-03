@@ -3,14 +3,15 @@ import java.util.Scanner;
 
 public class MenuManager {
 	//원하는 메뉴를 출력하는 클래스
-	
+
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		FinancialManager financialManager = new FinancialManager(input);
-		
-		
-		
+		//FinancialManager 클래스를 선언
+
+
+
 		int num = -1;
 
 		while(num != 5) {
@@ -19,7 +20,7 @@ public class MenuManager {
 			System.out.println("3. Edit Money");
 			System.out.println("4. View Money");
 			System.out.println("5. Exit");
-			System.out.println("Select one number beetween 1~5 : ");
+			System.out.print("Select one number beetween 1~5 : ");
 			num = input.nextInt();
 
 			//각 메뉴에 대한 출력
@@ -45,6 +46,6 @@ public class MenuManager {
 			}
 		} //while 문 종료 괄호
 	}//main method 괄호
-	
+
 
 }
