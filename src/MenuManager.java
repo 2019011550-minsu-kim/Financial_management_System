@@ -18,7 +18,7 @@ public class MenuManager {
 			System.out.println("1. Add Money"); 
 			System.out.println("2. Delete Money");
 			System.out.println("3. Edit Money");
-			System.out.println("4. View Money");
+			System.out.println("4. View Employees");
 			System.out.println("5. Exit");
 			System.out.print("Select one number beetween 1~5 : ");
 			num = input.nextInt();
@@ -38,7 +38,7 @@ public class MenuManager {
 			}
 			else if (num == 4)
 			{
-				financialManager.viewMoney();
+				financialManager.viewEmployees();
 			}
 			else {
 				continue;
