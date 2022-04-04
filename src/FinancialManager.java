@@ -58,10 +58,10 @@ public class FinancialManager {
 					System.out.println("** Financial Info Edit Menu **");
 					System.out.println(" 1. Edit Number");
 					System.out.println(" 2. Edit Name");
-					System.out.println(" 2. Edit Money Input");
-					System.out.println(" 2. Edit Input Day");
+					System.out.println(" 3. Edit Money Input");
+					System.out.println(" 4. Edit Input Day");
 					System.out.println(" 5. Exit");
-					System.out.println("Select one number between 1 - 6: ");
+					System.out.println("Select one number between 1 - 5: ");
 					num = input.nextInt();
 					if(num == 1) {
 						System.out.print(" Employee Number : ");
