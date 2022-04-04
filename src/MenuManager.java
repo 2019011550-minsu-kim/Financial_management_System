@@ -42,7 +42,7 @@ public class MenuManager {
 			}
 			else {
 				continue;
-				//5번을 입력 시 메뉴를 다시 출력해줌
+				
 			}
 		} //while 문 종료 괄호
 	}//main method 괄호
