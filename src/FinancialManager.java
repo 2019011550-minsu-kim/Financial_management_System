@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Finance.Financial;
+import Finance.ManagerFinancial;
+
 public class FinancialManager {
 	ArrayList<Financial> finances = new ArrayList <Financial>();
 	Scanner input;
@@ -11,18 +14,37 @@ public class FinancialManager {
 	}
 
 	public void addMoney() {
-		Financial financial = new Financial();
-		System.out.print(" Employee Number : "); //사원번호
-		financial.employeeNumber = input.nextInt();
-		System.out.print(" Employee Name : "); //돈 받는사람
-		financial.employeeName = input.next();
-		System.out.print(" Money Input : "); //받은 금액
-		financial.inputMoney = input.nextInt();
-		System.out.print(" Input Day : "); //돈 들어오는 날
-		input.nextLine();
-		financial.inputDay = input.nextLine();
+		int kind = 0;
+		Financial financial;
+		while(kind != 1 && kind != 2) {
 
-		finances.add(financial);
+			System.out.print(" 1 for Employee : ");
+			System.out.print(" 2 for Manager : ");
+			System.out.print(" 3 for Ceo : ");
+			System.out.print(" Select num for Finance Kind betewwn a and 2: ");
+			kind = input.nextInt();
+			if (kind == 1) {
+				financial = new Financial();
+				financial.getUserInput(input);
+				finances.add(financial);
+				break;
+
+			}
+			else if (kind == 2) { 
+				financial = new ManagerFinancial();
+				financial.getUserInput(input);
+				finances.add(financial);
+				break;
+			}
+			else {
+				System.out.print(" Select num for Finance Kind betewwn 1 and 2: ");
+			}
+		}
+
+		
+
+		
+		
 	}
 
 	public void deleteMoney() {
@@ -30,7 +52,7 @@ public class FinancialManager {
 		int employeeNumber = input.nextInt();
 		int index = -1;
 		for (int i =0; i<finances.size();i++){
-			if(finances.get(i).employeeNumber == employeeNumber) {
+			if(finances.get(i).getEmployeeNumber() == employeeNumber) {
 				index = i;
 				break;
 			}
@@ -51,8 +73,8 @@ public class FinancialManager {
 		System.out.print(" Employee Number : "); //사원 번호
 		int employeeNumber = input.nextInt();
 		for (int i =0; i<finances.size();i++) {
-			Financial financial = finances.get(i);
-			if(financial.employeeNumber == employeeNumber) {
+			Financial financial = finances.get(i); //변수명 변경을 막기 위해 선언(원래 financial 로 되어 있었기에.)
+			if(financial.getEmployeeNumber() == employeeNumber) {
 				int num = -1;
 				while(num!=5) {
 					System.out.println("** Financial Info Edit Menu **");
@@ -61,24 +83,29 @@ public class FinancialManager {
 					System.out.println(" 3. Edit Money Input");
 					System.out.println(" 4. Edit Input Day");
 					System.out.println(" 5. Exit");
-					System.out.println("Select one number between 1 - 5: ");
+					System.out.print("Select one number between 1 - 5: ");
 					num = input.nextInt();
 					if(num == 1) {
 						System.out.print(" Employee Number : ");
-						financial.employeeNumber = input.nextInt();
+						int number = input.nextInt();
+						financial.setEmployeeNumber(number);
+
 					}
 					else if (num == 2) {
 						System.out.print(" Employee Name : ");
-						financial.employeeName = input.next();
+						String name = input.next();
+						financial.setEmployeeName(name);
 					}
 					else if (num == 3) {
 						System.out.print(" Money Input : ");
-						financial.inputMoney = input.nextInt();
+						int money = input.nextInt();
+						financial.setInputMoney(money);
 					}
 					else if (num == 4) {
 						System.out.print(" Input Day : ");
 						input.nextLine();
-						financial.inputDay = input.nextLine();
+						String day = input.nextLine();
+						financial.setInputDay(day);
 					}
 					else {
 						continue;
@@ -92,6 +119,7 @@ public class FinancialManager {
 	public void viewEmployees() {
 		//System.out.print(" Employee Number : "); //돈 받는사람
 		//int employeeNumber = input.nextInt();
+		System.out.println("# of registered finances : " + finances.size());
 		for (int i =0; i<finances.size();i++) {
 			finances.get(i).printInfo();
 		}

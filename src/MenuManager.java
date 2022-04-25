@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 public class MenuManager {
-	//원하는 메뉴를 출력하는 클래스
+	//원하는 메뉴를 FinancialManager의 메소드를 통해 출력하는 클래스
 
 
 	public static void main(String[] args) {
