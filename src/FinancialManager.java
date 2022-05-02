@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Finance.CeoFinancial;
+import Finance.FinanceKind;
 import Finance.Financial;
 import Finance.ManagerFinancial;
 
@@ -18,26 +20,32 @@ public class FinancialManager {
 		Financial financial;
 		while(kind != 1 && kind != 2) {
 
-			System.out.print(" 1 for Employee : ");
+			System.out.print(" 1 for Staff : ");
 			System.out.print(" 2 for Manager : ");
-			System.out.print(" 3 for Ceo : ");
-			System.out.print(" Select num for Finance Kind betewwn a and 2: ");
+			System.out.print(" 3 for Ceo : "); //아직 CeoFinancial 클래스는 제작 x
+			System.out.print(" Select num for Finance Kind betewwn 1 and 3: ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				financial = new Financial();
+				financial = new Financial(FinanceKind.Staff);
 				financial.getUserInput(input);
 				finances.add(financial);
 				break;
 
 			}
 			else if (kind == 2) { 
-				financial = new ManagerFinancial();
+				financial = new ManagerFinancial(FinanceKind.Manager);
+				financial.getUserInput(input);
+				finances.add(financial);
+				break;
+			}
+			else if (kind == 3) { 
+				financial = new CeoFinancial(FinanceKind.Ceo);
 				financial.getUserInput(input);
 				finances.add(financial);
 				break;
 			}
 			else {
-				System.out.print(" Select num for Finance Kind betewwn 1 and 2: ");
+				System.out.print(" Select num for Finance Kind betewwn 1 and 3: ");
 			}
 		}
 

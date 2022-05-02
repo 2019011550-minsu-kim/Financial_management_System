@@ -1,7 +1,7 @@
 package Finance;
 
-public enum FinanceKind {
-	Employee,
+public enum FinanceKind {   //
+	Staff,
 	Manager,
 	Ceo
 

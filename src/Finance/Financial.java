@@ -3,13 +3,17 @@ package Finance;
 import java.util.Scanner;
 
 public class Financial {
-	protected FinanceKind kind = FinanceKind.Employee;
+	protected FinanceKind kind = FinanceKind.Staff; //enum에서는 인스턴스를 만들지 않아도 되는건가? 프로그램 구조화, 다른사람이 보기 쉽게
 	protected int employeeNumber;
 	protected String employeeName;
 	protected int inputMoney;
 	protected String inputDay;
-	
-	
+
+	public Financial(FinanceKind kind) {
+		this.kind = kind;
+
+	}
+
 	public Financial() {
 
 	} //생성자가 없을 경우를 대비해서 만들어 두기
@@ -21,7 +25,16 @@ public class Financial {
 		this.inputMoney = inputMoney;
 		this.inputDay = inputDay;
 	}
-	
+
+	public Financial(FinanceKind kind, int employeeNumber,String employeeName, int inputMoney, String inputDay)
+	{
+		this.kind = kind;
+		this.employeeNumber = employeeNumber;
+		this.employeeName = employeeName;
+		this.inputMoney = inputMoney;
+		this.inputDay = inputDay;
+	}
+
 	public FinanceKind getKind() {
 		return kind;
 	}
@@ -62,23 +75,37 @@ public class Financial {
 		this.inputDay = inputDay;
 	}
 
-	public void printInfo() {
-		System.out.println("Employee Number : " + employeeNumber + " Employee Name : " + employeeName + " Input Money : " + inputMoney + " Input Day :" + inputDay);
-	}
 	
-	public void getUserInput(Scanner input) {
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case Staff:
+			skind = "Staff.";
+			break;
+		case Manager:
+			skind = "Manager.";
+			break;
+		case Ceo:
+			skind = "Ceo.";
+			break;
+		default:
+		}
+		System.out.println("kind : "+ skind + "Employee Number : " + employeeNumber + " Employee Name : " + employeeName + " Input Money : " + inputMoney + " Input Day :" + inputDay);
+	}
+
+	public void getUserInput(Scanner input) {  //파라미터로 스캐너형이 들어오면 next형태가 있는 경우에 계속 입력이 가능한건가
 		System.out.print(" Employee Number : "); //사원번호
 		int employeeNumber = input.nextInt();
 		this.setEmployeeNumber(employeeNumber);
-		
+
 		System.out.print(" Employee Name : "); //돈 받는사람
 		String employeeName = input.next();
 		this.setEmployeeName(employeeName);
-		
+
 		System.out.print(" Money Input : "); //받은 금액
 		int inputMoney = input.nextInt();
 		this.setInputMoney(inputMoney);
-		
+
 		System.out.print(" Input Day : "); //돈 들어오는 날
 		input.nextLine();
 		String inputDay = input.nextLine();
