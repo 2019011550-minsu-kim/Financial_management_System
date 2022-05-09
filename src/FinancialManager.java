@@ -4,10 +4,12 @@ import java.util.Scanner;
 import Finance.CeoFinancial;
 import Finance.FinanceKind;
 import Finance.Financial;
+import Finance.FinancialInput;
 import Finance.ManagerFinancial;
+import Finance.StaffFinancial;
 
 public class FinancialManager {
-	ArrayList<Financial> finances = new ArrayList <Financial>();
+	ArrayList<FinancialInput> finances = new ArrayList <FinancialInput>();
 	Scanner input;
 
 
@@ -17,7 +19,7 @@ public class FinancialManager {
 
 	public void addMoney() {
 		int kind = 0;
-		Financial financial;
+		FinancialInput financialInput;
 		while(kind != 1 && kind != 2) {
 
 			System.out.print(" 1 for Staff : ");
@@ -26,22 +28,22 @@ public class FinancialManager {
 			System.out.print(" Select num for Finance Kind betewwn 1 and 3: ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				financial = new Financial(FinanceKind.Staff);
-				financial.getUserInput(input);
-				finances.add(financial);
+				financialInput = new StaffFinancial(FinanceKind.Staff);
+				financialInput.getUserInput(input);
+				finances.add(financialInput);
 				break;
 
 			}
 			else if (kind == 2) { 
-				financial = new ManagerFinancial(FinanceKind.Manager);
-				financial.getUserInput(input);
-				finances.add(financial);
+				financialInput = new ManagerFinancial(FinanceKind.Manager);
+				financialInput.getUserInput(input);
+				finances.add(financialInput);
 				break;
 			}
 			else if (kind == 3) { 
-				financial = new CeoFinancial(FinanceKind.Ceo);
-				financial.getUserInput(input);
-				finances.add(financial);
+				financialInput = new CeoFinancial(FinanceKind.Ceo);
+				financialInput.getUserInput(input);
+				finances.add(financialInput);
 				break;
 			}
 			else {
@@ -81,8 +83,8 @@ public class FinancialManager {
 		System.out.print(" Employee Number : "); //사원 번호
 		int employeeNumber = input.nextInt();
 		for (int i =0; i<finances.size();i++) {
-			Financial financial = finances.get(i); //변수명 변경을 막기 위해 선언(원래 financial 로 되어 있었기에.)
-			if(financial.getEmployeeNumber() == employeeNumber) {
+			FinancialInput financialInput = finances.get(i); //변수명 변경을 막기 위해 선언(원래 financial 로 되어 있었기에.)
+			if(financialInput.getEmployeeNumber() == employeeNumber) {
 				int num = -1;
 				while(num!=5) {
 					System.out.println("** Financial Info Edit Menu **");
@@ -96,24 +98,24 @@ public class FinancialManager {
 					if(num == 1) {
 						System.out.print(" Employee Number : ");
 						int number = input.nextInt();
-						financial.setEmployeeNumber(number);
+						financialInput.setEmployeeNumber(number);
 
 					}
 					else if (num == 2) {
 						System.out.print(" Employee Name : ");
 						String name = input.next();
-						financial.setEmployeeName(name);
+						financialInput.setEmployeeName(name);
 					}
 					else if (num == 3) {
 						System.out.print(" Money Input : ");
 						int money = input.nextInt();
-						financial.setInputMoney(money);
+						financialInput.setInputMoney(money);
 					}
 					else if (num == 4) {
 						System.out.print(" Input Day : ");
 						input.nextLine();
 						String day = input.nextLine();
-						financial.setInputDay(day);
+						financialInput.setInputDay(day);
 					}
 					else {
 						continue;

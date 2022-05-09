@@ -2,8 +2,8 @@ package Finance;
 
 import java.util.Scanner;
 
-public class CeoFinancial extends Financial {
-	
+public class CeoFinancial extends Financial implements FinancialInput{
+
 	public CeoFinancial(FinanceKind kind) {
 		super(kind);
 
@@ -44,6 +44,23 @@ public class CeoFinancial extends Financial {
 		input.nextLine();
 		String inputDay = input.nextLine();
 		this.setInputDay(inputDay);
+	}
+
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case Staff:
+			skind = "Staff.";
+			break;
+		case Manager:
+			skind = "Manager.";
+			break;
+		case Ceo:
+			skind = "Ceo.";
+			break;
+		default:
+		}
+		System.out.println("kind : "+ skind + "Employee Number : " + employeeNumber + " Employee Name : " + employeeName + " Input Money : " + inputMoney + " Input Day :" + inputDay);
 	}
 
 }
