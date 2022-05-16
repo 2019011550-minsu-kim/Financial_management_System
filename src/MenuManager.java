@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuManager {
@@ -9,43 +10,54 @@ public class MenuManager {
 		Scanner input = new Scanner(System.in);
 		FinancialManager financialManager = new FinancialManager(input);
 		//FinancialManager 클래스를 선언
+		selectMenu(input, financialManager);
 
 
-
-		int num = -1;
-
-		while(num != 5) {
-			System.out.println("1. Add Money"); 
-			System.out.println("2. Delete Money");
-			System.out.println("3. Edit Money");
-			System.out.println("4. View Employees");
-			System.out.println("5. Exit");
-			System.out.print("Select one number beetween 1~5 : ");
-			num = input.nextInt();
-
-			//각 메뉴에 대한 출력
-			if (num == 1)
-			{
-				financialManager.addMoney();
-			}
-			else if (num == 2)
-			{
-				financialManager.deleteMoney();
-			}
-			else if (num == 3)
-			{
-				financialManager.editMoney();
-			}
-			else if (num == 4)
-			{
-				financialManager.viewEmployees();
-			}
-			else {
-				continue;
-				
-			}
-		} //while 문 종료 괄호
 	}//main method 괄호
+
+	public static void selectMenu(Scanner input, FinancialManager financialManager) {
+		int num = -1;
+		while(num != 5) {
+			try {
+				showMenu();
+				num = input.nextInt();
+				switch(num) {
+				case 1:
+					financialManager.addMoney();
+					break;
+				case 2:
+					financialManager.deleteMoney();
+					break;
+				case 3:
+					financialManager.editMoney();
+					break;
+				case 4:
+					financialManager.viewEmployees();
+					break;
+				default :
+					continue;
+				}
+			}
+			catch(InputMismatchException e){
+				System.out.println("please put an integer between 1 and 5!");
+				if(input.hasNext()) {
+					input.next();
+				}
+				num = -1;
+			}
+		}
+	}
+
+	public static void showMenu() {
+		System.out.println("1. Add Money"); 
+		System.out.println("2. Delete Money");
+		System.out.println("3. Edit Money");
+		System.out.println("4. View Employees");
+		System.out.println("5. Exit");
+		System.out.print("Select one number beetween 1~5 : ");
+
+	}
 
 
 }
+

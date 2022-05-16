@@ -2,7 +2,9 @@ package Finance;
 
 import java.util.Scanner;
 
-public abstract class Financial {  //Financial 객체를 생성하지 않는다
+import exception.DayFormatException;
+
+public abstract class Financial  implements FinancialInput{  //Financial 객체를 생성하지 않는다
 	protected FinanceKind kind = FinanceKind.Staff; //enum에서는 인스턴스를 만들지 않아도 되는건가? 프로그램 구조화, 다른사람이 보기 쉽게
 	protected int employeeNumber;
 	protected String employeeName;
@@ -71,14 +73,64 @@ public abstract class Financial {  //Financial 객체를 생성하지 않는다
 		return inputDay;
 	}
 
-	public void setInputDay(String inputDay) {
+	public void setInputDay(String inputDay) throws DayFormatException {
+		if (!(inputDay.contains("월") && inputDay.contains("일"))) {
+			throw new DayFormatException();
+		}
 		this.inputDay = inputDay;
 	}
 
-	
+
 	public abstract void printInfo();
 
-	
+	public void setNumber(Scanner input) {
+		System.out.print(" Employee Number : ");
+		int number = input.nextInt();
+		this.setEmployeeNumber(number);
+	}
+
+	public void setName(Scanner input) {
+		System.out.print(" Employee Name : ");
+		String name = input.next();
+		this.setEmployeeName(name);
+	}
+
+	public void setMoney(Scanner input) {
+		System.out.print(" Money Input : ");
+		int money = input.nextInt();
+		this.setInputMoney(money);
+	}
+
+	public void setDay(Scanner input) {
+		String day = "";
+		while(!(day.contains("월")&& day.contains("일"))) {
+			System.out.print(" Input Day(a월b일 형태로 입력) : ");
+			day = input.next();
+			try {
+				this.setInputDay(day);
+			} catch (DayFormatException e) {
+				System.out.println("Incorrect Day Format, put the Day that contains a월b일"); //왜 출력이 안되지...
+			}
+		}
+	}
+
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Staff:
+			skind = "Staff";
+			break;
+		case Manager:
+			skind = "Manager";
+			break;
+		case Ceo:
+			skind = "Ceo";
+			break;
+		default:
+		}
+		return skind;
+	}
+
 
 
 }
