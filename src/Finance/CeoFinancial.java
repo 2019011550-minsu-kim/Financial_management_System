@@ -16,13 +16,4 @@ public class CeoFinancial extends HighLevelEmployee{
 		setMoney(input);
 		setDay(input);
 	}
-	
-	
-	
-
-	
-
 }
-
-
-

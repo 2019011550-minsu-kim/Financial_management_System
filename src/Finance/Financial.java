@@ -1,10 +1,16 @@
 package Finance;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.DayFormatException;
 
-public abstract class Financial  implements FinancialInput{  //Financial 객체를 생성하지 않는다
+public abstract class Financial  implements FinancialInput, Serializable{  //Financial 객체를 생성하지 않는다
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3971858161126912513L;
+	
 	protected FinanceKind kind = FinanceKind.Staff; //enum에서는 인스턴스를 만들지 않아도 되는건가? 프로그램 구조화, 다른사람이 보기 쉽게
 	protected int employeeNumber;
 	protected String employeeName;

@@ -1,17 +1,22 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Finance.CeoFinancial;
 import Finance.FinanceKind;
-import Finance.Financial;
 import Finance.FinancialInput;
 import Finance.ManagerFinancial;
 import Finance.StaffFinancial;
 
-public class FinancialManager {
+public class FinancialManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4687128340487126927L;
+	
 	ArrayList<FinancialInput> finances = new ArrayList <FinancialInput>();
-	Scanner input;
+	transient Scanner input;
 
 
 	FinancialManager(Scanner input){
