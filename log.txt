@@ -1,2 +1,2 @@
-5월 22, 2022 3:09:09 오전 log.EventLogger log
+5월 23, 2022 3:13:52 오후 log.EventLogger log
 INFO: view Money list
