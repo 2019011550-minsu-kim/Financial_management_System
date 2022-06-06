@@ -2,10 +2,11 @@ package gui;
 
 public class GuiTest {
 	public static void main(String [] args) {
-		MenuSelection menuselection = new MenuSelection();
+		//WindowFrame frame = new WindowFrame();
 		
-		FinancialAdder financialadder = new FinancialAdder();
 		
-		FinancialViewer financialviewer = new FinancialViewer();
+		
+		
+		
 	}
 }

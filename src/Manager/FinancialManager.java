@@ -1,3 +1,5 @@
+package Manager;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -5,6 +7,7 @@ import java.util.Scanner;
 
 import Finance.CeoFinancial;
 import Finance.FinanceKind;
+import Finance.Financial;
 import Finance.FinancialInput;
 import Finance.ManagerFinancial;
 import Finance.StaffFinancial;
@@ -139,7 +142,17 @@ public class FinancialManager implements Serializable{
 		}
 
 	}
-
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
+	
+	public int size() {
+		return finances.size();
+	}
+	
+	public FinancialInput get(int index) {
+		return (Financial) finances.get(index);
+	}
 
 
 	public void showEditMenu() {

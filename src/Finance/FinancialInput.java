@@ -27,5 +27,13 @@ public interface FinancialInput {
 	
 	public void setDay(Scanner input);
 	
+	public String getEmployeeName();
+	
+	public int getInputMoney();
+	
+	public String getInputDay();
+	
+	
+	
 
 }

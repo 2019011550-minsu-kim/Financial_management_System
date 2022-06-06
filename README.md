@@ -1,2 +1,2 @@
-# Financial_management_System
+Financial_management_System
 course project for oop
