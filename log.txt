@@ -1,6 +1,0 @@
-6월 04, 2022 5:33:26 오후 log.EventLogger log
-INFO: add Money
-6월 04, 2022 5:34:04 오후 log.EventLogger log
-INFO: add Money
-6월 04, 2022 5:34:06 오후 log.EventLogger log
-INFO: view Money list

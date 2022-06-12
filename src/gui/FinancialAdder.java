@@ -7,12 +7,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import Manager.FinancialManager;
+import listeners.FinancialAdderCancelListener;
+import listeners.FinancialAdderListener;
+
 public class FinancialAdder extends JPanel{
 	
 	WindowFrame frame;
+	FinancialManager financialManager;
 	
-	public FinancialAdder(WindowFrame frame) {
+	public FinancialAdder(WindowFrame frame, FinancialManager financialManager) {
 		this.frame = frame;
+		this.financialManager = financialManager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -38,11 +44,20 @@ public class FinancialAdder extends JPanel{
 		JLabel labelDay = new JLabel("DAY", JLabel.TRAILING);
 		JTextField fieldDay = new JTextField(10);
 		labelDay.setLabelFor(fieldDay);
+		
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new FinancialAdderListener(fieldNumber, fieldName, fieldMoney, fieldDay, financialManager));
+		
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new FinancialAdderCancelListener(frame));
+		
 		panel.add(labelDay);
 		panel.add(fieldDay);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		
+		panel.add(saveButton);
+		panel.add(cancelButton);
 		
 		
 		SpringUtilities.makeCompactGrid(panel,5, 2, 6,6,6,6);

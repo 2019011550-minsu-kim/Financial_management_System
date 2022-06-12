@@ -25,6 +25,16 @@ public class FinancialManager implements Serializable{
 	FinancialManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void addMoney(String number, String name, String money, String day) {
+		FinancialInput financialInput = new StaffFinancial(FinanceKind.Staff);
+		financialInput.getUserInput(input);
+		finances.add(financialInput);
+	}
+	public void addMoney(FinancialInput financialInput) {
+	
+		finances.add(financialInput);
+	}
 
 	public void addMoney() {
 		int kind = 0;

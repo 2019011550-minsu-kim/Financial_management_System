@@ -22,7 +22,7 @@ public class WindowFrame extends JFrame{
 		
 		this.financialManager = financialManager;
 		this.menuselection = new MenuSelection(this);
-		this.financialadder = new FinancialAdder(this);
+		this.financialadder = new FinancialAdder(this, this.financialManager);
 		this.financialviewer = new FinancialViewer(this, this.financialManager);
 		
 		

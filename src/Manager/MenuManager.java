@@ -19,7 +19,7 @@ public class MenuManager {
 
 
 	public static void main(String[] args) {
-		
+
 		Scanner input = new Scanner(System.in);
 		FinancialManager financialManager = getObject("financialManager.ser");
 		if (financialManager == null) {
@@ -28,7 +28,7 @@ public class MenuManager {
 		else {
 			financialManager.setScanner(input);
 		}
-		
+
 		WindowFrame frame = new WindowFrame(financialManager);
 		selectMenu(input, financialManager);
 		putObject(financialManager, "financialManager.ser");
@@ -82,17 +82,17 @@ public class MenuManager {
 		System.out.print("Select one number beetween 1~5 : ");
 
 	}
-	
+
 	public static FinancialManager getObject(String filename) {
 		FinancialManager financialManager = null;
-		
-		
+
+
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
-			
+
 			financialManager = (FinancialManager)in.readObject();
-			
+
 			in.close();
 			file.close();
 		} catch (FileNotFoundException e) {
@@ -104,18 +104,18 @@ public class MenuManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return financialManager;
-		
-	
+
+
 	}
 	public static void putObject(FinancialManager financialManager, String filename) {
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out = new ObjectOutputStream(file);
-			
+
 			out.writeObject(financialManager);
-			
+
 			out.close();
 			file.close();
 		} catch (FileNotFoundException e) {
@@ -125,9 +125,9 @@ public class MenuManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		
-	
+
+
+
 	}
 }
 
